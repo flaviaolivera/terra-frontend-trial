@@ -6,7 +6,14 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint . --ext .js,.astro",
+    "lint:fix": "eslint . --ext .js,.astro --fix",
+    "lint:check": "eslint . --ext .js,.astro --max-warnings 0",
+    "code:check": "npm run lint:check && npm run format:check",
+    "code:fix": "npm run lint:fix && npm run format"
   },
   "dependencies": {
     "@terrahq/collapsify": "^0.0.21",
@@ -14,5 +21,16 @@
     "astro": "^5.10.1",
     "gsap": "^3.13.0",
     "sass": "^1.89.2"
+  },
+  "devDependencies": {
+    "@astrojs/ts-plugin": "^1.10.4",
+    "@typescript-eslint/parser": "^8.39.0",
+    "astro-eslint-parser": "^1.2.2",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-astro": "^1.3.1",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

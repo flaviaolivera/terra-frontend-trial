@@ -1,26 +1,26 @@
 ---
 export interface Props {
-    title?: string;
-    description?: string;
-    icon?: string;
-    link?: string;
+  title?: string;
+  description?: string;
+  icon?: string;
+  link?: string;
 }
 
-const { 
-    title = "Feature Card", 
-    description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
-    icon = "🚀",
-    link = "#"
+const {
+  title = 'Feature Card',
+  description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  icon = '🚀',
+  link = '#',
 } = Astro.props;
 ---
 
 <div class="c--card-b js--reveal-item">
-    <div class="c--card-b__icon">
-        <span class="c--card-b__icon-text">{icon}</span>
-    </div>
-    <div class="c--card-b__content">
-        <h3 class="c--card-b__title">{title}</h3>
-        <p class="c--card-b__description">{description}</p>
-        <a href={link} class="c--card-b__link">Explore</a>
-    </div>
-</div> 
+  <div class="c--card-b__icon">
+    <span class="c--card-b__icon-text">{icon}</span>
+  </div>
+  <div class="c--card-b__content">
+    <h3 class="c--card-b__title">{title}</h3>
+    <p class="c--card-b__description">{description}</p>
+    <a href={link} class="c--card-b__link">Explore</a>
+  </div>
+</div>

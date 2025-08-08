@@ -1,26 +1,26 @@
 ---
 export interface Props {
-    title?: string;
-    description?: string;
-    image?: string;
-    link?: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  link?: string;
 }
 
-const { 
-    title = "Card Title", 
-    description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
-    image = "https://via.placeholder.com/400x300",
-    link = "#"
+const {
+  title = 'Card Title',
+  description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  image = 'https://via.placeholder.com/400x300',
+  link = '#',
 } = Astro.props;
 ---
 
 <div class="c--card-a js--reveal-item">
-    <div class="c--card-a__image">
-        <img src={image} alt={title} loading="lazy">
-    </div>
-    <div class="c--card-a__content">
-        <h3 class="c--card-a__title">{title}</h3>
-        <p class="c--card-a__description">{description}</p>
-        <a href={link} class="c--card-a__link">Learn More</a>
-    </div>
-</div> 
+  <div class="c--card-a__image">
+    <img src={image} alt={title} loading="lazy" />
+  </div>
+  <div class="c--card-a__content">
+    <h3 class="c--card-a__title">{title}</h3>
+    <p class="c--card-a__description">{description}</p>
+    <a href={link} class="c--card-a__link">Learn More</a>
+  </div>
+</div>
