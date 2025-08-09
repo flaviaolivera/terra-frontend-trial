@@ -17,9 +17,7 @@ class Main {
   init() {
     this.instances['collapsify'] = [];
     this.instances['collapsify'][0] = new Collapsify({
-      onToggle: (isOpen, element) => {
-        this.handleAccordionToggle(isOpen, element);
-      },
+      closeOthers: false,
     });
   }
 
@@ -52,21 +50,6 @@ class Main {
         element: item,
       });
     });
-  }
-
-  handleAccordionToggle(isOpen, element) {
-    const button = element.querySelector('.c--accordion-a__item__hd');
-    const arrow = button.querySelector('.c--accordion-a__item__hd__artwork');
-
-    if (arrow) {
-      if (isOpen) {
-        arrow.style.transform = 'rotate(180deg)';
-        button.setAttribute('aria-expanded', 'true');
-      } else {
-        arrow.style.transform = 'rotate(0deg)';
-        button.setAttribute('aria-expanded', 'false');
-      }
-    }
   }
 }
 export default Main;
