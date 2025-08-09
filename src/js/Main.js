@@ -24,21 +24,17 @@ class Main {
   events() {
     if (this.DOM.playBtn) {
       this.DOM.playBtn.addEventListener('click', () => {
-        this.lottieInstances.forEach(instance => {
-          if (instance && typeof instance.play === 'function') {
-            instance.play();
-          }
-        });
+        if (window.WL && window.WL['lottieSection']) {
+          window.WL['lottieSection'].play();
+        }
       });
     }
 
     if (this.DOM.pauseBtn) {
       this.DOM.pauseBtn.addEventListener('click', () => {
-        this.lottieInstances.forEach(instance => {
-          if (instance && typeof instance.pause === 'function') {
-            instance.pause();
-          }
-        });
+        if (window.WL && window.WL['lottieSection']) {
+          window.WL['lottieSection'].pause();
+        }
       });
     }
   }
