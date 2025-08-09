@@ -21,13 +21,6 @@ class Main {
         this.handleAccordionToggle(isOpen, element);
       },
     });
-
-    this.instances['RevealInstances'] = [];
-    this.DOM.revealItems.forEach((item, index) => {
-      this.instances['RevealInstances'][index] = new RevealItem({
-        element: item,
-      });
-    });
   }
 
   events() {
@@ -50,6 +43,15 @@ class Main {
         });
       });
     }
+  }
+
+  initRevealItems() {
+    this.instances['RevealInstances'] = [];
+    this.DOM.revealItems.forEach((item, index) => {
+      this.instances['RevealInstances'][index] = new RevealItem({
+        element: item,
+      });
+    });
   }
 
   handleAccordionToggle(isOpen, element) {
