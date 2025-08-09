@@ -56,6 +56,7 @@ class Project {
     });
 
     await this.loadAssetsInBackground(mainInstance);
+    mainInstance.initRevealItems();
 
     const tl = gsap.timeline();
     tl.to('.c--preloader-a', {
