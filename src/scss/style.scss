@@ -133,14 +133,24 @@ body {
       @extend .f--font-c;
 
       &__artwork {
+        --translate: translateY(25px);
+        --scale: scale(1.8);
+        --rotate-closed: rotate(180deg);
+        --rotate-open: rotate(0deg);
+
         position: absolute;
         right: 0;
         top: 0;
-        transform: translateY(25px) scale(1.8) rotate(180deg);
+        transform: var(--translate) var(--scale) var(--rotate-closed);
+        transition: transform 0.3s ease;
         pointer-events: none;
       }
     }
   }
+}
+
+.c--accordion-a__item__hd--is-active .c--accordion-a__item__hd__artwork {
+  transform: var(--translate) var(--scale) var(--rotate-open);
 }
 
 .c--btn-a {
