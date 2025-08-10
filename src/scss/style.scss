@@ -174,56 +174,8 @@ body {
   width: 100%;
 }
 
-// Responsive Design
-@media (max-width: 768px) {
-  .f--font-a {
-    font-size: 32px;
-  }
 
-  .f--font-b {
-    font-size: 24px;
-  }
 
-  .f--font-c {
-    font-size: 18px;
-  }
-
-  .c--hero-a {
-    height: 40vh;
-  }
-
-  .f--col-4 {
-    width: 100% !important;
-    margin-bottom: $measure * 4;
-  }
-
-  .f--col-6 {
-    width: 100% !important;
-  }
-
-  .f--col-8 {
-    width: 100% !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .f--font-a {
-    font-size: 28px;
-  }
-
-  .f--font-b {
-    font-size: 20px;
-  }
-
-  .c--hero-a {
-    height: 30vh;
-  }
-
-  .c--card-a__content,
-  .c--card-b {
-    padding: $measure * 3;
-  }
-}
 
 // Card Components
 .c--card-a {
@@ -332,6 +284,42 @@ body {
     &:hover {
       color: map.get($color-options, e);
     }
+  }
+}
+
+.c--card-c {
+  position: relative;
+  width: 584px;
+  height: 311px;
+  background: map.get($color-options, a);
+  border-radius: 24px;
+  overflow: hidden;
+
+  &__brand {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 165px;
+    height: 48.18px;
+  }
+
+  &__title {
+    position: absolute;
+    left: 24px;
+    bottom: 20px;
+    margin: 0;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 1;
+
+    background: linear-gradient(
+      to bottom,
+      map.get($color-options, i) 0 60%,
+      map.get($color-options, e) 60% 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 }
 
@@ -484,8 +472,52 @@ body {
     }
   }
 }
-
+// Responsive Design
 @media (max-width: 768px) {
+  .f--font-a {
+    font-size: 32px;
+  }
+
+  .f--font-b {
+    font-size: 24px;
+  }
+
+  .f--font-c {
+    font-size: 18px;
+  }
+
+  .c--hero-a {
+    height: 40vh;
+  }
+
+  .f--col-4 {
+    width: 100% !important;
+    margin-bottom: $measure * 4;
+  }
+
+  .f--col-6 {
+    width: 100% !important;
+  }
+
+  .f--col-8 {
+    width: 100% !important;
+  }
+
+  .c--card-c {
+    width: 100%;
+    aspect-ratio: 584 / 311;
+    height: auto;
+
+    &__title {
+      font-size: clamp(32px, 9vw, 80px);
+    }
+    &__brand {
+      left: auto;
+      width: clamp(110px, 20vw, 165px);
+      height: auto;
+    }
+  }
+
   .c--cards-grid {
     --gap: 20px;
     grid-template-columns: 1fr;
@@ -529,5 +561,24 @@ body {
     &__item--i7 {
       display: none;
     }
+  }
+}
+
+@media (max-width: 480px) {
+  .f--font-a {
+    font-size: 28px;
+  }
+
+  .f--font-b {
+    font-size: 20px;
+  }
+
+  .c--hero-a {
+    height: 30vh;
+  }
+
+  .c--card-a__content,
+  .c--card-b {
+    padding: $measure * 3;
   }
 }
