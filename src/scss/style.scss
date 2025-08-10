@@ -174,9 +174,6 @@ body {
   width: 100%;
 }
 
-
-
-
 // Card Components
 .c--card-a {
   background-color: map.get($color-options, b);
@@ -332,7 +329,8 @@ body {
   grid-template-rows: repeat(7, minmax(0, 1fr));
   width: 100%;
   max-width: 1200px;
-  min-height: 714px;
+  aspect-ratio: 1200 / 714;
+  height: auto;
 
   &__item {
     display: flex;
@@ -433,8 +431,8 @@ body {
   }
 
   &__text-wrapper {
-    width: 229px;
-    height: 86px;
+    width: clamp(160px, 19vw, 229px);
+    height: clamp(72px, 7.2vw, 86px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -442,7 +440,7 @@ body {
 
   &__text {
     font:
-      400 32px 'Roboto',
+      400 clamp(20px, 2vw, 32px) 'Roboto',
       sans-serif;
     color: map.get($color-options, a);
     width: 181px;
@@ -450,28 +448,6 @@ body {
   }
 }
 
-@media (max-width: 1280px) {
-  .c--cards-grid {
-    min-height: 500px;
-    &__text {
-      font-size: 25px;
-    }
-  }
-}
-
-@media (max-width: 1024px) {
-  .c--cards-grid {
-    &__text-wrapper {
-      width: 160px;
-      height: 72px;
-    }
-    &__text {
-      font-size: 20px;
-      width: 125px;
-      height: 34px;
-    }
-  }
-}
 // Responsive Design
 @media (max-width: 768px) {
   .f--font-a {
