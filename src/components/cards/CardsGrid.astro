@@ -1,51 +1,53 @@
 ---
 type CardsGridContent = {
-  topLeft: string;      
-  middleLeft: string;   
-  centerWide: string;   
-  bottomCenter: string; 
-  rightTall: string;   
+  topLeft: string;
+  middleLeft: string;
+  centerWide: string;
+  bottomCenter: string;
+  rightTall: string;
 };
 
 const { content = {} as CardsGridContent } = Astro.props;
 ---
 
-<section class="c--cards-grid">
+<section class="c--cards-grid" aria-labelledby="cards-grid-heading">
+  <h2 id="cards-grid-heading" class="sr-only">Content showcase</h2>
 
   <div class="c--cards-grid__item c--cards-grid__item--i1">
     <div class="c--cards-grid__text-wrapper">
-      <span class="c--cards-grid__text">{content.topLeft}</span>
+      <p class="c--cards-grid__text">{content.topLeft}</p>
     </div>
   </div>
 
   <div class="c--cards-grid__item c--cards-grid__item--i2">
-    <div class="blue-notch"></div>
+    <div class="blue-notch" aria-hidden="true"></div>
   </div>
 
   <div class="c--cards-grid__item c--cards-grid__item--i3">
     <div class="c--cards-grid__text-wrapper">
-      <span class="c--cards-grid__text">{content.middleLeft}</span>
+      <p class="c--cards-grid__text">{content.middleLeft}</p>
     </div>
   </div>
 
   <div class="c--cards-grid__item c--cards-grid__item--i4">
     <div class="c--cards-grid__text-wrapper">
-      <span class="c--cards-grid__text">{content.centerWide}</span>
+      <p class="c--cards-grid__text">{content.centerWide}</p>
     </div>
   </div>
 
   <div class="c--cards-grid__item c--cards-grid__item--i5">
     <div class="c--cards-grid__text-wrapper">
-      <span class="c--cards-grid__text">{content.bottomCenter}</span>
+      <p class="c--cards-grid__text">{content.bottomCenter}</p>
     </div>
   </div>
 
   <div class="c--cards-grid__item c--cards-grid__item--i6">
-    <div class="green-notch"></div>
+    <div class="green-notch" aria-hidden="true"></div>
     <div class="c--cards-grid__text-wrapper">
-      <span class="c--cards-grid__text">{content.rightTall}</span>
+      <p class="c--cards-grid__text">{content.rightTall}</p>
     </div>
   </div>
 
-  <div class="c--cards-grid__item c--cards-grid__item--i7"></div>
+  <div class="c--cards-grid__item c--cards-grid__item--i7" aria-hidden="true">
+  </div>
 </section>
