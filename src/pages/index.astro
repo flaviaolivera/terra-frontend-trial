@@ -1,8 +1,20 @@
 ---
+import CardC from '@/components/cards/CardC.astro';
+import CardsGrid from '@/components/cards/CardsGrid.astro';
 import CardA from '@components/cards/CardA.astro';
 import CardB from '@components/cards/CardB.astro';
 import HeroA from '@components/hero/HeroA.astro';
 import Layout from '@layouts/Layout.astro';
+
+
+const CardsGridContent = {
+  topLeft: "This is a text",
+  middleLeft: "This is a text",
+  centerWide: "This is a text",
+  bottomCenter: "This is a text",
+  rightTall: "This is a text"
+};
+
 ---
 
 <Layout>
@@ -15,8 +27,8 @@ import Layout from '@layouts/Layout.astro';
           <h2 class="f--font-b u--mb-4">Tabs section</h2>
         </div>
       </div>
-      <div class="f--row">
-        <div class="f--col-8 f--offset-2">
+      <div class="f--row u--justify-content-center">
+        <div class="f--col-mobile-10 f--col-desktop-8">
           <div class="c--accordion-a js--collapsify">
             <div class="c--accordion-a__item">
               <button
@@ -128,12 +140,13 @@ import Layout from '@layouts/Layout.astro';
         </div>
       </div>
       <div class="f--row">
-        <div class="f--col-4 f--offset-4">
-          <div class="js--lottie-element c--lottie-a" data-name="lottieSection"></div>
+        <div class="f--col-12">
+          <div class="js--lottie-element c--lottie-a" data-name="lottieSection">
+          </div>
         </div>
       </div>
       <div class="f--row">
-        <div class="f--col-4 f--offset-4 u--text-align-center">
+        <div class="f--col-12 u--text-align-center">
           <button class="c--btn-a js--play" aria-label="Play animation"
             ><svg
               width="24"
@@ -172,22 +185,22 @@ import Layout from '@layouts/Layout.astro';
           </h2>
         </div>
       </div>
-      <div class="f--row">
-        <div class="f--col-4">
+      <div class="f--row f--gap-c u--cols-gap-x" data-grid="cards">
+        <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
           <CardA
             title="Modern Design"
             description="Clean and modern design patterns for the web."
             image="https://via.placeholder.com/400x300/4A90E2/FFFFFF?text=Design"
           />
         </div>
-        <div class="f--col-4">
+        <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
           <CardA
             title="Responsive Layout"
             description="Fully responsive layouts that work on all devices."
             image="https://via.placeholder.com/400x300/50C878/FFFFFF?text=Responsive"
           />
         </div>
-        <div class="f--col-4">
+        <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
           <CardA
             title="Performance"
             description="Optimized for speed and performance."
@@ -195,22 +208,22 @@ import Layout from '@layouts/Layout.astro';
           />
         </div>
       </div>
-      <div class="f--row u--mt-8">
-        <div class="f--col-4">
+      <div class="f--row u--mt-8 f--gap-c u--cols-gap-x" data-grid="cards">
+        <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
           <CardB
             title="Innovation"
             description="Cutting-edge technology and innovative solutions."
             icon="💡"
           />
         </div>
-        <div class="f--col-4">
+        <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
           <CardB
             title="Quality"
             description="High-quality code and attention to detail."
             icon="⭐"
           />
         </div>
-        <div class="f--col-4">
+        <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
           <CardB
             title="Support"
             description="Excellent support and documentation."
@@ -239,5 +252,12 @@ import Layout from '@layouts/Layout.astro';
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="u--pb-15">
+    <div class="f--container"><CardsGrid content={CardsGridContent} /></div>
+  </div>
+  <div class="u--pb-15">
+    <div class="f--container"><CardC title='hello world'/></div>
   </div>
 </Layout>

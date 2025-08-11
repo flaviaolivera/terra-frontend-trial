@@ -1,0 +1,16 @@
+---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<article class="c--card-c">
+  <img
+    class="c--card-c__brand"
+    src="/assets/terra.gif"
+    alt="Terra GIF"
+    loading="lazy"
+  />
+  <h3 class="c--card-c__title">{title}</h3>
+</article>

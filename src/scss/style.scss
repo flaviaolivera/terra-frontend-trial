@@ -45,15 +45,21 @@ $measure: 0.5rem;
 }
 
 .f--font-a {
-  font-size: 50px;
+  font-size: clamp(28px, 5vw, 50px);
 }
 
 .f--font-b {
-  font-size: 35px;
+  font-size: clamp(20px, 3.5vw, 35px);
 }
 
 .f--font-c {
-  font-size: 25px;
+  font-size: clamp(18px, 2.5vw, 25px);
+}
+
+/* Custom util: adds horizontal gutters for columns, not provided by DS */
+.u--cols-gap-x > [class*='f--col-'] {
+  padding-left: $measure * 2;
+  padding-right: $measure * 2;
 }
 
 body {
@@ -84,7 +90,11 @@ body {
     background-color: map.get($color-options, b);
     text-align: center;
     border-radius: 8px;
-    padding: $measure * 2 $measure * 4;
+    padding: $measure * 1.25 $measure * 0.5;
+    .c--header-a__logo {
+      width: clamp(140px, 25vw, 229px) !important;
+      height: auto !important;
+    }
   }
 }
 
@@ -133,7 +143,7 @@ body {
       @extend .f--font-c;
 
       &__artwork {
-        --translate: translateY(25px);
+        --translate: translateY(20px);
         --scale: scale(1.8);
         --rotate-closed: rotate(180deg);
         --rotate-open: rotate(0deg);
@@ -174,59 +184,9 @@ body {
   width: 100%;
 }
 
-// Responsive Design
-@media (max-width: 768px) {
-  .f--font-a {
-    font-size: 32px;
-  }
-
-  .f--font-b {
-    font-size: 24px;
-  }
-
-  .f--font-c {
-    font-size: 18px;
-  }
-
-  .c--hero-a {
-    height: 40vh;
-  }
-
-  .f--col-4 {
-    width: 100% !important;
-    margin-bottom: $measure * 4;
-  }
-
-  .f--col-6 {
-    width: 100% !important;
-  }
-
-  .f--col-8 {
-    width: 100% !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .f--font-a {
-    font-size: 28px;
-  }
-
-  .f--font-b {
-    font-size: 20px;
-  }
-
-  .c--hero-a {
-    height: 30vh;
-  }
-
-  .c--card-a__content,
-  .c--card-b {
-    padding: $measure * 3;
-  }
-}
-
 // Card Components
 .c--card-a {
+  height: 100%;
   background-color: map.get($color-options, b);
   border-radius: 12px;
   overflow: hidden;
@@ -287,6 +247,7 @@ body {
 }
 
 .c--card-b {
+  height: 100%;
   background-color: map.get($color-options, b);
   border-radius: 12px;
   padding: $measure * 4;
@@ -332,5 +293,250 @@ body {
     &:hover {
       color: map.get($color-options, e);
     }
+  }
+}
+
+.c--card-c {
+  position: relative;
+  width: 584px;
+  height: 311px;
+  background: map.get($color-options, a);
+  border-radius: 24px;
+  overflow: hidden;
+
+  &__brand {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 165px;
+    height: 48.18px;
+  }
+
+  &__title {
+    position: absolute;
+    left: 24px;
+    bottom: 20px;
+    margin: 0;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 1;
+
+    background: linear-gradient(
+      to bottom,
+      map.get($color-options, i) 0 60%,
+      map.get($color-options, e) 60% 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.c--cards-grid {
+  --gap: clamp(20px, calc(20px + (100vw - 820px) * 0.0316), 32px);
+  --radius: 24px;
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: repeat(7, minmax(0, 1fr));
+  width: 100%;
+  max-width: 1200px;
+  aspect-ratio: 1200 / 714;
+  height: auto;
+
+  &__item {
+    display: flex;
+    align-items: flex-end;
+    border-radius: var(--radius);
+
+    &--i1 {
+      grid-column: 1 / span 3;
+      grid-row: 1 / span 3;
+      background: map.get($color-options, d);
+    }
+
+    &--i2 {
+      grid-column: 1 / span 3;
+      grid-row: 4 / span 2;
+      background: map.get($color-options, f);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      margin-bottom: calc(-1 * var(--gap));
+      position: relative;
+
+      .blue-notch {
+        position: absolute;
+        bottom: 0;
+        right: -24px;
+        width: var(--radius);
+        height: var(--radius);
+        background: map.get($color-options, f);
+        z-index: 1;
+        overflow: hidden;
+
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: map.get($color-options, b);
+          border-bottom-left-radius: 100%;
+        }
+      }
+    }
+
+    &--i3 {
+      grid-column: 1 / span 5;
+      grid-row: 6 / span 3;
+      background: map.get($color-options, f);
+      border-top-left-radius: 0;
+    }
+
+    &--i4 {
+      grid-column: 6 / span 3;
+      grid-row: 6 / span 3;
+      background: map.get($color-options, g);
+    }
+
+    &--i5 {
+      grid-column: 9 / span 4;
+      grid-row: 3 / span 6;
+      background: map.get($color-options, i);
+      z-index: 15;
+    }
+
+    &--i6 {
+      grid-column: 4 / span 5;
+      grid-row: 3 / span 3;
+      background: map.get($color-options, e);
+      margin-top: calc(-1 * var(--gap));
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      position: relative;
+      z-index: 10;
+
+      .green-notch {
+        position: absolute;
+        top: 0;
+        right: -24px;
+        width: var(--radius);
+        height: var(--radius);
+        background: map.get($color-options, e);
+        z-index: 1;
+        overflow: hidden;
+
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: map.get($color-options, b);
+          border-top-left-radius: 100%;
+        }
+      }
+    }
+
+    &--i7 {
+      grid-column: 4 / span 9;
+      grid-row: 1 / span 2;
+      background: map.get($color-options, e);
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &__text-wrapper {
+    width: clamp(160px, 19vw, 229px);
+    height: clamp(72px, 7.2vw, 86px);
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+  }
+
+  &__text {
+    font:
+      400 clamp(20px, 2vw, 32px) 'Roboto',
+      sans-serif;
+    color: map.get($color-options, a);
+    width: 181px;
+    height: 38px;
+  }
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  .f--row[data-grid='cards'] > [class*='f--col-']:last-child {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .c--hero-a {
+    height: 40vh;
+  }
+
+  .c--card-c {
+    width: 100%;
+    aspect-ratio: 584 / 311;
+    height: auto;
+
+    &__title {
+      font-size: clamp(32px, 9vw, 80px);
+    }
+    &__brand {
+      left: auto;
+      width: clamp(110px, 20vw, 165px);
+      height: auto;
+    }
+  }
+
+  .c--cards-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    height: auto;
+
+    &__text-wrapper {
+      width: 180px;
+      height: 64px;
+    }
+    &__text {
+      font-size: 22px;
+      width: auto;
+      height: auto;
+    }
+
+    &__item {
+      grid-column: 1 / -1;
+      min-height: 200px;
+      grid-row: auto;
+    }
+
+    &__item--i2 {
+      display: none;
+    }
+
+    &__item--i3 {
+      border-top-left-radius: var(--radius);
+    }
+
+    &__item--i6 {
+      margin-top: 0;
+      border-top-right-radius: var(--radius);
+      border-top-left-radius: var(--radius);
+    }
+
+    &__item--i6 .green-notch {
+      display: none;
+    }
+
+    &__item--i7 {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+
+  .c--card-a__content,
+  .c--card-b {
+    padding: $measure * 3;
   }
 }
