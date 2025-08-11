@@ -5,6 +5,7 @@ import CardA from '@components/cards/CardA.astro';
 import CardB from '@components/cards/CardB.astro';
 import HeroA from '@components/hero/HeroA.astro';
 import Layout from '@layouts/Layout.astro';
+import { Image } from 'astro:assets';
 
 const CardsGridContent = {
   topLeft: 'This is a text',
@@ -144,9 +145,12 @@ const CardsGridContent = {
             class="f--col-6 f--offset-3 u--text-align-center js--reveal-item"
           >
             <h2 id="headshot-section-heading" class="sr-only">Headshot</h2>
-            <img
-              src="http://placeholder.terrahq.com/headshot.webp"
+            <Image
+              src="https://placeholder.terrahq.com/headshot.webp"
               alt="Profile photo of Terra HQ"
+              width="400"
+              height="400"
+              class="c--headshot-image"
             />
           </div>
         </div>
