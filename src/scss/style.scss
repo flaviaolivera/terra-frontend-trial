@@ -247,13 +247,13 @@ body {
   }
 
   &__link {
-    color: map.get($color-options, d);
+    color: #0f7542;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 
     &:hover {
-      color: map.get($color-options, e);
+      color: map.get($color-options, a);
     }
   }
 }
@@ -297,13 +297,13 @@ body {
   }
 
   &__link {
-    color: map.get($color-options, d);
+    color: #0f7542;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 
     &:hover {
-      color: map.get($color-options, e);
+      color: map.get($color-options, a);
     }
   }
 }
