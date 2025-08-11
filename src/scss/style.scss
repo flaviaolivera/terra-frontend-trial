@@ -45,15 +45,21 @@ $measure: 0.5rem;
 }
 
 .f--font-a {
-  font-size: 50px;
+  font-size: clamp(28px, 5vw, 50px);
 }
 
 .f--font-b {
-  font-size: 35px;
+  font-size: clamp(20px, 3.5vw, 35px);
 }
 
 .f--font-c {
-  font-size: 25px;
+  font-size: clamp(18px, 2.5vw, 25px);
+}
+
+/* Custom util: adds horizontal gutters for columns, not provided by DS */
+.u--cols-gap-x > [class*='f--col-'] {
+  padding-left: $measure * 2;
+  padding-right: $measure * 2;
 }
 
 body {
@@ -84,7 +90,11 @@ body {
     background-color: map.get($color-options, b);
     text-align: center;
     border-radius: 8px;
-    padding: $measure * 2 $measure * 4;
+    padding: $measure * 1.25 $measure * 0.5;
+    .c--header-a__logo {
+      width: clamp(140px, 25vw, 229px) !important;
+      height: auto !important;
+    }
   }
 }
 
@@ -133,7 +143,7 @@ body {
       @extend .f--font-c;
 
       &__artwork {
-        --translate: translateY(25px);
+        --translate: translateY(20px);
         --scale: scale(1.8);
         --rotate-closed: rotate(180deg);
         --rotate-open: rotate(0deg);
@@ -176,6 +186,7 @@ body {
 
 // Card Components
 .c--card-a {
+  height: 100%;
   background-color: map.get($color-options, b);
   border-radius: 12px;
   overflow: hidden;
@@ -236,6 +247,7 @@ body {
 }
 
 .c--card-b {
+  height: 100%;
   background-color: map.get($color-options, b);
   border-radius: 12px;
   padding: $measure * 4;
@@ -321,7 +333,7 @@ body {
 }
 
 .c--cards-grid {
-  --gap: 32px;
+  --gap: clamp(20px, calc(20px + (100vw - 820px) * 0.0316), 32px);
   --radius: 24px;
   display: grid;
   gap: var(--gap);
@@ -435,7 +447,7 @@ body {
     height: clamp(72px, 7.2vw, 86px);
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding-left: 1rem;
   }
 
   &__text {
@@ -449,34 +461,16 @@ body {
 }
 
 // Responsive Design
+@media (max-width: 1024px) {
+  .f--row[data-grid='cards'] > [class*='f--col-']:last-child {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
-  .f--font-a {
-    font-size: 32px;
-  }
-
-  .f--font-b {
-    font-size: 24px;
-  }
-
-  .f--font-c {
-    font-size: 18px;
-  }
-
   .c--hero-a {
     height: 40vh;
-  }
-
-  .f--col-4 {
-    width: 100% !important;
-    margin-bottom: $measure * 4;
-  }
-
-  .f--col-6 {
-    width: 100% !important;
-  }
-
-  .f--col-8 {
-    width: 100% !important;
   }
 
   .c--card-c {
@@ -495,7 +489,6 @@ body {
   }
 
   .c--cards-grid {
-    --gap: 20px;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     height: auto;
@@ -541,17 +534,6 @@ body {
 }
 
 @media (max-width: 480px) {
-  .f--font-a {
-    font-size: 28px;
-  }
-
-  .f--font-b {
-    font-size: 20px;
-  }
-
-  .c--hero-a {
-    height: 30vh;
-  }
 
   .c--card-a__content,
   .c--card-b {
