@@ -110,6 +110,13 @@ body {
   }
 }
 
+.c--headshot-image {
+  width: auto !important;
+  height: auto !important;
+  max-width: 100%;
+  object-fit: cover;
+}
+
 .c--page-a {
   position: relative;
 
@@ -152,6 +159,7 @@ body {
       width: 100%;
       text-align: left;
       position: relative;
+      min-height: 60px;
       @extend .f--font-c;
 
       &__artwork {

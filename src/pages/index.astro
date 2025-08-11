@@ -5,6 +5,7 @@ import CardA from '@components/cards/CardA.astro';
 import CardB from '@components/cards/CardB.astro';
 import HeroA from '@components/hero/HeroA.astro';
 import Layout from '@layouts/Layout.astro';
+import { Image } from 'astro:assets';
 
 const CardsGridContent = {
   topLeft: 'This is a text',
@@ -144,9 +145,12 @@ const CardsGridContent = {
             class="f--col-6 f--offset-3 u--text-align-center js--reveal-item"
           >
             <h2 id="headshot-section-heading" class="sr-only">Headshot</h2>
-            <img
-              src="http://placeholder.terrahq.com/headshot.webp"
+            <Image
+              src="https://placeholder.terrahq.com/headshot.webp"
               alt="Profile photo of Terra HQ"
+              width="400"
+              height="400"
+              class="c--headshot-image"
             />
           </div>
         </div>
@@ -227,21 +231,21 @@ const CardsGridContent = {
             <CardA
               title="Modern Design"
               description="Clean and modern design patterns for the web."
-              image="https://via.placeholder.com/400x300/4A90E2/FFFFFF?text=Design"
+              image="https://placehold.co/400x300/4A90E2/FFFFFF?text=Design"
             />
           </div>
           <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
             <CardA
               title="Responsive Layout"
               description="Fully responsive layouts that work on all devices."
-              image="https://via.placeholder.com/400x300/50C878/FFFFFF?text=Responsive"
+              image="https://placehold.co/400x300/50C878/FFFFFF?text=Responsive"
             />
           </div>
           <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
             <CardA
               title="Performance"
               description="Optimized for speed and performance."
-              image="https://via.placeholder.com/400x300/FF6B6B/FFFFFF?text=Speed"
+              image="https://placehold.co/400x300/FF6B6B/FFFFFF?text=Speed"
             />
           </div>
         </div>

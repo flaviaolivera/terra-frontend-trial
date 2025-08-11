@@ -35,7 +35,7 @@ const cardId = `card-title-${title.replace(/\s+/g, '-').toLowerCase()}-${Math.ra
       class="c--card-a__link"
       aria-label={`Learn more about ${title}`}
     >
-      Learn More
+      Learn More<span class="sr-only"> about {title}</span>
     </a>
   </div>
 </article>
