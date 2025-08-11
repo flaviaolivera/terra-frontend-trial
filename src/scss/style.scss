@@ -37,6 +37,18 @@ $colorbg-options: (
 $measure: 0.5rem;
 /* 0.5rem = 8px */
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip-path: inset(50%);
+}
+
 .roboto {
   font-family: 'Roboto', sans-serif;
   font-optical-sizing: auto;
@@ -308,8 +320,6 @@ body {
     position: absolute;
     top: 24px;
     right: 24px;
-    width: 165px;
-    height: 48.18px;
   }
 
   &__title {
@@ -534,7 +544,6 @@ body {
 }
 
 @media (max-width: 480px) {
-
   .c--card-a__content,
   .c--card-b {
     padding: $measure * 3;
