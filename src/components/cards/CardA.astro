@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 export interface Props {
   title?: string;
   description?: string;
@@ -9,18 +11,31 @@ export interface Props {
 const {
   title = 'Card Title',
   description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  image = 'https://via.placeholder.com/400x300',
+  image = 'https://placehold.co/400x300',
   link = '#',
 } = Astro.props;
+
+const cardId = `card-title-${title.replace(/\s+/g, '-').toLowerCase()}-${Math.random().toString(36).substring(2, 8)}`;
 ---
 
-<div class="c--card-a js--reveal-item">
+<article class="c--card-a js--reveal-item" aria-labelledby={cardId}>
   <div class="c--card-a__image">
-    <img src={image} alt={title} loading="lazy" />
+    <Image
+      src={image}
+      alt={description ? description : title}
+      width="400"
+      height="200"
+    />
   </div>
   <div class="c--card-a__content">
-    <h3 class="c--card-a__title">{title}</h3>
+    <h3 class="c--card-a__title" id={cardId}>{title}</h3>
     <p class="c--card-a__description">{description}</p>
-    <a href={link} class="c--card-a__link">Learn More</a>
+    <a
+      href={link}
+      class="c--card-a__link"
+      aria-label={`Learn more about ${title}`}
+    >
+      Learn More<span class="sr-only"> about {title}</span>
+    </a>
   </div>
-</div>
+</article>

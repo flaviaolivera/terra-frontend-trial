@@ -5,259 +5,310 @@ import CardA from '@components/cards/CardA.astro';
 import CardB from '@components/cards/CardB.astro';
 import HeroA from '@components/hero/HeroA.astro';
 import Layout from '@layouts/Layout.astro';
-
+import { Image } from 'astro:assets';
 
 const CardsGridContent = {
-  topLeft: "This is a text",
-  middleLeft: "This is a text",
-  centerWide: "This is a text",
-  bottomCenter: "This is a text",
-  rightTall: "This is a text"
+  topLeft: 'This is a text',
+  middleLeft: 'This is a text',
+  centerWide: 'This is a text',
+  bottomCenter: 'This is a text',
+  rightTall: 'This is a text',
 };
-
 ---
 
 <Layout>
-  <HeroA />
+  <main id="main-content" tabindex="-1">
+    <HeroA />
 
-  <div class="u--pt-10 u--pt-tablets-7 u--pb-15 u--pb-tablets-10">
-    <div class="f--container">
-      <div class="f--row">
-        <div class="f--col-12 u--text-align-center">
-          <h2 class="f--font-b u--mb-4">Tabs section</h2>
+    <section
+      aria-labelledby="tabs-section-heading"
+      class="u--pt-10 u--pt-tablets-7 u--pb-15 u--pb-tablets-10"
+    >
+      <div class="f--container">
+        <div class="f--row">
+          <div class="f--col-12 u--text-align-center">
+            <h2 id="tabs-section-heading" class="f--font-b u--mb-4">
+              Tabs section
+            </h2>
+          </div>
+        </div>
+        <div class="f--row u--justify-content-center">
+          <div class="f--col-mobile-10 f--col-desktop-8">
+            <div class="c--accordion-a js--collapsify" role="presentation">
+              <div class="c--accordion-a__item">
+                <button
+                  class="c--accordion-a__item__hd"
+                  data-collapsify-control="collapsify-0"
+                  aria-expanded="false"
+                  aria-controls="collapsify-0"
+                  aria-label="Show or hide: tempore nemo sed voluptatibus"
+                >
+                  <span id="accordion-header-0"
+                    >tempore nemo sed voluptatibus</span
+                  >
+                  <svg
+                    class="c--accordion-a__item__hd__artwork"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M6 9L12 15L18 9"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                  </svg>
+                </button>
+                <div
+                  class="c--accordion-a__item__bd"
+                  data-collapsify-content="collapsify-0"
+                  role="region"
+                  aria-labelledby="accordion-header-0"
+                  tabindex="-1"
+                >
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum.
+                  </p>
+                </div>
+              </div>
+              <div class="c--accordion-a__item">
+                <button
+                  class="c--accordion-a__item__hd"
+                  data-collapsify-control="collapsify-1"
+                  aria-expanded="false"
+                  aria-controls="collapsify-1"
+                  aria-label="Show or hide: Ut enim ad minim veniam"
+                >
+                  <span id="accordion-header-1">Ut enim ad minim veniam</span>
+                  <svg
+                    class="c--accordion-a__item__hd__artwork"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M6 9L12 15L18 9"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                  </svg>
+                </button>
+                <div
+                  class="c--accordion-a__item__bd"
+                  data-collapsify-content="collapsify-1"
+                  role="region"
+                  aria-labelledby="accordion-header-1"
+                  tabindex="-1"
+                >
+                  <p>
+                    Sed ut perspiciatis unde omnis iste natus error sit
+                    voluptatem accusantium doloremque laudantium, totam rem
+                    aperiam, eaque ipsa quae ab illo inventore veritatis et
+                    quasi architecto beatae vitae dicta sunt explicabo. Nemo
+                    enim ipsam voluptatem quia voluptas sit aspernatur aut odit
+                    aut fugit, sed quia consequuntur magni dolores eos qui
+                    ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+                    qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+                    velit, sed quia non numquam eius modi tempora incidunt ut
+                    labore et dolore magnam aliquam quaerat voluptatem.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="f--row u--justify-content-center">
-        <div class="f--col-mobile-10 f--col-desktop-8">
-          <div class="c--accordion-a js--collapsify">
-            <div class="c--accordion-a__item">
-              <button
-                class="c--accordion-a__item__hd"
-                data-collapsify-control="collapsify-0"
-                aria-expanded="false"
-                aria-controls="collapsify-0"
-              >
-                tempore nemo sed voluptatibus
-                <svg
-                  class="c--accordion-a__item__hd__artwork"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M6 9L12 15L18 9"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"></path>
-                </svg>
-              </button>
-              <div
-                class="c--accordion-a__item__bd"
-                data-collapsify-content="collapsify-0"
-              >
+    </section>
+
+    <section
+      aria-labelledby="headshot-section-heading"
+      class="u--pt-0 u--pt-tablets-7 u--pb-15 u--pb-tablets-10"
+    >
+      <div class="f--container">
+        <div class="f--row">
+          <div
+            class="f--col-6 f--offset-3 u--text-align-center js--reveal-item"
+          >
+            <h2 id="headshot-section-heading" class="sr-only">Headshot</h2>
+            <Image
+              src="https://placeholder.terrahq.com/headshot.webp"
+              alt="Profile photo of Terra HQ"
+              width="400"
+              height="400"
+              class="c--headshot-image"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      aria-labelledby="lottie-section-heading"
+      class="u--pt-10 u--pt-tablets-7 u--pb-15 u--pb-tablets-10 js--reveal-item"
+    >
+      <div class="f--container">
+        <div class="f--row">
+          <div class="f--col-12 u--text-align-center">
+            <h2 id="lottie-section-heading" class="f--font-b u--mb-4">
+              Lottie Section
+            </h2>
+          </div>
+        </div>
+        <div class="f--row">
+          <div class="f--col-12">
+            <div
+              class="js--lottie-element c--lottie-a"
+              data-name="lottieSection"
+              role="region"
+              aria-label="Lottie animation"
+            >
+            </div>
+          </div>
+        </div>
+        <div class="f--row">
+          <div class="f--col-12 u--text-align-center">
+            <button class="c--btn-a js--play" aria-label="Play animation"
+              ><svg
+                width="24"
+                height="24"
+                xmlns="http://www.w3.org/2000/svg"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                ><path
+                  d="M23 12l-22 12v-24l22 12zm-21 10.315l18.912-10.315-18.912-10.315v20.63z"
+                ></path></svg
+              ></button
+            >
+            <button class="c--btn-a js--pause" aria-label="Pause animation"
+              ><svg
+                width="24"
+                height="24"
+                xmlns="http://www.w3.org/2000/svg"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                ><path
+                  d="M10 24h-6v-24h6v24zm10 0h-6v-24h6v-24zm-11-23h-4v22h4v-22zm10 0h-4v22h4v-22z"
+                ></path></svg
+              ></button
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      aria-labelledby="cards-section-heading"
+      class="u--pt-10 u--pt-tablets-7 u--pb-15 u--pb-tablets-10"
+    >
+      <div class="f--container">
+        <div class="f--row">
+          <div class="f--col-12 u--text-align-center">
+            <h2
+              id="cards-section-heading"
+              class="f--font-b u--mb-4 js--reveal-item"
+            >
+              Cards Component to Terra Frontend Trial
+            </h2>
+          </div>
+        </div>
+        <div class="f--row f--gap-c u--cols-gap-x" data-grid="cards">
+          <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
+            <CardA
+              title="Modern Design"
+              description="Clean and modern design patterns for the web."
+              image="https://placehold.co/400x300/4A90E2/FFFFFF?text=Design"
+            />
+          </div>
+          <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
+            <CardA
+              title="Responsive Layout"
+              description="Fully responsive layouts that work on all devices."
+              image="https://placehold.co/400x300/50C878/FFFFFF?text=Responsive"
+            />
+          </div>
+          <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
+            <CardA
+              title="Performance"
+              description="Optimized for speed and performance."
+              image="https://placehold.co/400x300/FF6B6B/FFFFFF?text=Speed"
+            />
+          </div>
+        </div>
+        <div class="f--row u--mt-8 f--gap-c u--cols-gap-x" data-grid="cards">
+          <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
+            <CardB
+              title="Innovation"
+              description="Cutting-edge technology and innovative solutions."
+              icon="💡"
+            />
+          </div>
+          <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
+            <CardB
+              title="Quality"
+              description="High-quality code and attention to detail."
+              icon="⭐"
+            />
+          </div>
+          <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
+            <CardB
+              title="Support"
+              description="Excellent support and documentation."
+              icon="🛠️"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      aria-labelledby="final-step-heading"
+      class="u--pt-10 u--pt-tablets-7 u--pb-15 u--pb-tablets-10"
+    >
+      <div class="f--container">
+        <div class="f--row">
+          <div class="f--col-12 u--text-align-center">
+            <h2
+              id="final-step-heading"
+              class="f--font-b u--mb-8 js--reveal-item"
+            >
+              Final Step
+            </h2>
+            <div class="f--row">
+              <div class="f--col-6 f--offset-3">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Adipisci inventore sint mollitia modi corrupti quis
+                  consequuntur fugit quas voluptates nesciunt maxime
+                  praesentium, illum quod aut enim reiciendis ullam
+                  voluptatibus! Eum.
                 </p>
               </div>
             </div>
-            <div class="c--accordion-a__item">
-              <button
-                class="c--accordion-a__item__hd"
-                data-collapsify-control="collapsify-1"
-                aria-expanded="false"
-                aria-controls="collapsify-1"
-              >
-                Ut enim ad minim veniam
-                <svg
-                  class="c--accordion-a__item__hd__artwork"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M6 9L12 15L18 9"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"></path>
-                </svg>
-              </button>
-              <div
-                class="c--accordion-a__item__bd"
-                data-collapsify-content="collapsify-1"
-              >
-                <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam, eaque
-                  ipsa quae ab illo inventore veritatis et quasi architecto
-                  beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem
-                  quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                  consequuntur magni dolores eos qui ratione voluptatem sequi
-                  nesciunt. Neque porro quisquam est, qui dolorem ipsum quia
-                  dolor sit amet, consectetur, adipisci velit, sed quia non
-                  numquam eius modi tempora incidunt ut labore et dolore magnam
-                  aliquam quaerat voluptatem.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <div class="u--pt-0 u--pt-tablets-7 u--pb-15 u--pb-tablets-10">
-    <div class="f--container">
-      <div class="f--row">
-        <div class="f--col-6 f--offset-3 u--text-align-center js--reveal-item">
-          <img src="http://placeholder.terrahq.com/headshot.webp" alt="" />
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div
-    class="u--pt-10 u--pt-tablets-7 u--pb-15 u--pb-tablets-10 js--reveal-item"
-  >
-    <div class="f--container">
-      <div class="f--row">
-        <div class="f--col-12 u--text-align-center">
-          <h2 class="f--font-b u--mb-4">Lottie Section</h2>
-        </div>
-      </div>
-      <div class="f--row">
-        <div class="f--col-12">
-          <div class="js--lottie-element c--lottie-a" data-name="lottieSection">
-          </div>
-        </div>
-      </div>
-      <div class="f--row">
-        <div class="f--col-12 u--text-align-center">
-          <button class="c--btn-a js--play" aria-label="Play animation"
-            ><svg
-              width="24"
-              height="24"
-              xmlns="http://www.w3.org/2000/svg"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              ><path
-                d="M23 12l-22 12v-24l22 12zm-21 10.315l18.912-10.315-18.912-10.315v20.63z"
-              ></path></svg
-            ></button
-          >
-          <button class="c--btn-a js--pause" aria-label="Pause animation"
-            ><svg
-              width="24"
-              height="24"
-              xmlns="http://www.w3.org/2000/svg"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              ><path
-                d="M10 24h-6v-24h6v24zm10 0h-6v-24h6v24zm-11-23h-4v22h4v-22zm10 0h-4v22h4v-22z"
-              ></path></svg
-            ></button
-          >
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="u--pt-10 u--pt-tablets-7 u--pb-15 u--pb-tablets-10">
-    <div class="f--container">
-      <div class="f--row">
-        <div class="f--col-12 u--text-align-center">
-          <h2 class="f--font-b u--mb-4 js--reveal-item">
-            Cards Component to Terra Frontend Trial
-          </h2>
-        </div>
-      </div>
-      <div class="f--row f--gap-c u--cols-gap-x" data-grid="cards">
-        <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
-          <CardA
-            title="Modern Design"
-            description="Clean and modern design patterns for the web."
-            image="https://via.placeholder.com/400x300/4A90E2/FFFFFF?text=Design"
-          />
-        </div>
-        <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
-          <CardA
-            title="Responsive Layout"
-            description="Fully responsive layouts that work on all devices."
-            image="https://via.placeholder.com/400x300/50C878/FFFFFF?text=Responsive"
-          />
-        </div>
-        <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
-          <CardA
-            title="Performance"
-            description="Optimized for speed and performance."
-            image="https://via.placeholder.com/400x300/FF6B6B/FFFFFF?text=Speed"
-          />
-        </div>
-      </div>
-      <div class="f--row u--mt-8 f--gap-c u--cols-gap-x" data-grid="cards">
-        <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
-          <CardB
-            title="Innovation"
-            description="Cutting-edge technology and innovative solutions."
-            icon="💡"
-          />
-        </div>
-        <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
-          <CardB
-            title="Quality"
-            description="High-quality code and attention to detail."
-            icon="⭐"
-          />
-        </div>
-        <div class="f--col-desktop-4 f--col-tabletm-6 f--col-mobile-12">
-          <CardB
-            title="Support"
-            description="Excellent support and documentation."
-            icon="🛠️"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="u--pt-10 u--pt-tablets-7 u--pb-15 u--pb-tablets-10">
-    <div class="f--container">
-      <div class="f--row">
-        <div class="f--col-12 u--text-align-center">
-          <h2 class="f--font-b u--mb-8 js--reveal-item">Final Step</h2>
-          <div class="f--row">
-            <div class="f--col-6 f--offset-3">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Adipisci inventore sint mollitia modi corrupti quis consequuntur
-                fugit quas voluptates nesciunt maxime praesentium, illum quod
-                aut enim reiciendis ullam voluptatibus! Eum.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="u--pb-15">
-    <div class="f--container"><CardsGrid content={CardsGridContent} /></div>
-  </div>
-  <div class="u--pb-15">
-    <div class="f--container"><CardC title='hello world'/></div>
-  </div>
+    <section class="u--pb-15">
+      <div class="f--container"><CardsGrid content={CardsGridContent} /></div>
+    </section>
+    <section class="u--pb-15">
+      <div class="f--container"><CardC title="hello world" /></div>
+    </section>
+  </main>
 </Layout>
