@@ -84,6 +84,20 @@ class Project {
       }
 
       if (this.DOM.lotties.length > 0) {
+        // TODO PERFORMANCE: Lottie loading is causing performance issues
+        // Problem: preloadLotties blocks the main thread and makes the page slow
+        // Tried using setTimeout to delay loading but didn't help much
+        // 
+        // What I found:
+        // - Lighthouse shows TBT around 470ms 
+        // - Performance score drops from ~95 to ~72 when Lotties are enabled
+        // - The issue seems to be the JSON parsing/animation setup, not just timing
+        //
+        // Possible solutions to try:
+        // - Only load Lottie when user scrolls to that section (intersection observer)
+        // - Use smaller/simpler Lottie files
+        // - Load in a web worker (might be overkill)
+        
         const { preloadLotties } = await import(
           '@terrahq/helpers/preloadLotties'
         );
