@@ -44,7 +44,7 @@ class RevealItem {
         trigger: this.DOM.element,
         start: 'top 90%',
         toggleActions: 'play none none reverse',
-        markers: true, // Set to true for debugging
+        markers: false, // Disabled for production
       },
       opacity: 0,
       y: 50,

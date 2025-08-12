@@ -200,12 +200,16 @@ body {
 }
 
 .c--lottie-a {
-  height: 300px;
   width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 0 auto;
 }
 
 // Card Components
 .c--card-a {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   background-color: map.get($color-options, b);
   border-radius: 12px;
@@ -239,6 +243,9 @@ body {
 
   &__content {
     padding: $measure * 4;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
   }
 
   &__title {
@@ -259,6 +266,7 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
+    margin-top: auto;
 
     &:hover {
       color: map.get($color-options, a);
@@ -267,6 +275,8 @@ body {
 }
 
 .c--card-b {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   background-color: map.get($color-options, b);
   border-radius: 12px;
@@ -291,6 +301,12 @@ body {
     }
   }
 
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
   &__title {
     @extend .f--font-c;
     color: map.get($color-options, a);
@@ -309,6 +325,7 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
+    margin-top: auto;
 
     &:hover {
       color: map.get($color-options, a);
@@ -479,6 +496,21 @@ body {
 }
 
 // Responsive Design
+
+@media (min-width: 1701px) {
+  .f--row[data-grid='cards'] {
+    > [class*='f--col-'] {
+      flex: 0 0 33.333%;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .c--lottie-a {
+    max-width: 600px;
+  }
+}
+
 @media (max-width: 1024px) {
   .f--row[data-grid='cards'] > [class*='f--col-']:last-child {
     flex: 0 0 100%;
